@@ -2,7 +2,7 @@
 
 @section("content")
 
-<form method="POST" action="/contact/send">
+<form method="POST" action="{{route('contact.send')}}">
   @csrf
 
   <label>メールアドレス</label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactsSendmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller
 {
@@ -47,8 +48,8 @@ class ContactsController extends Controller
             ->route('contact.index')
             ->withInput($inputs);
         } else {
-            \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs));
-            \Mail::to('自分のメールアドレス')->send(new ContactsSendmail($inputs));
+            Mail::to($inputs['email'])->send(new ContactsSendmail($inputs));
+            Mail::to('自分のメールアドレス')->send(new ContactsSendmail($inputs));
 
             // 二重送信対策のためトークンを再発行
             $request->session()->regenerateToken();

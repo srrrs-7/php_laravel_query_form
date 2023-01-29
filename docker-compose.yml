@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  # php:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: php-app
+  #   ports:
+  #     - "9000:9000"
+  #   volumes:
+  #     - ./:/var/www/html/
+
+  mail:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - '1025:1025'
+    environment:
+      MH_STORAGE: maildir
+      MH_MAILDIR_PATH: /tmp
+    volumes:
+      - ./:/tmp
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: crm_test_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: CrmTest2021
+      MYSQL_ROOT_PASSWORD: root
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./:/var/lib/mysql
