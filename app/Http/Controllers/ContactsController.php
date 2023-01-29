@@ -19,9 +19,12 @@ class ContactsController extends Controller
     public function confirm(Request $request)
     {
         $request->validate([
+            'job' => 'required',
+            'name' => 'required',
             'email' => 'required|email',
-            'title' => 'required',
-            'body' => 'required',
+            'query' => 'required',
+            'resume' => 'required',
+            'cv' => 'required'
         ]);
 
         $inputs = $request->all();
@@ -35,9 +38,12 @@ class ContactsController extends Controller
     public function send(Request $request)
     {
         $request->validate([
+            'job' => 'required',
+            'name' => 'required',
             'email' => 'required|email',
-            'title' => 'required',
-            'body' => 'required'
+            'query' => 'required',
+            'resume' => 'required',
+            'cv' => 'required'
         ]);
 
         $action = $request->input('action');

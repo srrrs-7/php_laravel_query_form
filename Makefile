@@ -25,3 +25,17 @@ composebuild:
 
 composeup:
 	docker-compose up -d
+
+ui:
+	composer require laravel/ui
+
+bootstrap:
+	php artisan ui bootstrap
+
+vite:
+	npm i
+	npm run build
+
+tailwind:
+	npm install -D tailwindcss postcss autoprefixer
+	npx tailwindcss init -p
