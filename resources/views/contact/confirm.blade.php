@@ -2,43 +2,72 @@
 
 @section("content")
 
-<form method="POST" action="{{route('contact.send')}}">
-  @csrf
+<div class="flex justify-center items-center mt-10">    
+        <h1 colspan="1" class="text-2xl">Check Form</h1>
+</div>
 
-  <label>Job</label>
-  {{ $inputs['email'] }}
-  <input name="email" value="{{ $inputs['job'] }}" type="hidden">
+<div class="flex justify-center items-center border border-black m-10 p-10 bg-amber-50">
 
-  <label>Name</label>
-  {{ $inputs['title'] }}
-  <input name="title" value="{{ $inputs['name'] }}" type="hidden">
+  <form method="POST" action="{{route('contact.send')}}">
+      @csrf
 
-  <label>Mail</label>
-  {!! nl2br(e($inputs['body'])) !!}
-  <input name="body" value="{{ $inputs['mail'] }}" type="hidden">
+      <div class="flex flex-col">
+        <div class="flex">
+          <label class="mr-10">Job</label>
+          {{ $inputs['job'] }}
+          <input name="job" value="{{ $inputs['job'] }}" type="hidden">
+        </div>
 
-  <label>Portfolio</label>
-  {{ $inputs['email'] }}
-  <input name="email" value="{{ $inputs['portfolio'] }}" type="hidden">
+        <div class="flex">
+          <label class="mr-10">Name</label>
+          {{ $inputs['name'] }}
+          <input name="name" value="{{ $inputs['name'] }}" type="hidden">
+        </div>
 
-  <label>Query</label>
-  {{ $inputs['title'] }}
-  <input name="title" value="{{ $inputs['query'] }}" type="hidden">
+        <div class="flex">
+          <label class="mr-10">Mail</label>
+          {!! nl2br(e($inputs['email'])) !!}
+          <input name="email" value="{{ $inputs['email'] }}" type="hidden">
+        </div>
 
-  <label>Resume</label>
-  {!! nl2br(e($inputs['body'])) !!}
-  <input name="body" value="{{ $inputs['resume'] }}" type="hidden">
+        <div class="flex">
+          <label class="mr-10">Portfolio</label>
+          {{ $inputs['portfolio'] }}
+          <input name="portfolio" value="{{ $inputs['portfolio'] }}" type="hidden">
+        </div>
 
-  <label>Curriculum Vitae</label>
-  {!! nl2br(e($inputs['body'])) !!}
-  <input name="body" value="{{ $inputs['cv'] }}" type="hidden">
+        <div class="flex">
+          <label class="mr-10">Query</label>
+          {!! nl2br(e($inputs['query'])) !!}
+          <input name="query" value="{{ $inputs['query'] }}" type="hidden">
+        </div>
 
-  <label>Portfolio</label>
-  {!! nl2br(e($inputs['body'])) !!}
-  <input name="body" value="{{ $inputs['portfolio'] }}" type="hidden">
+        <div class="flex">
+          <label class="mr-10">Resume</label>
+          {{ $inputs['file1'] }}
+          <input name="file1" value="{{ $inputs['file1'] }}" type="hidden">
+        </div>
 
-  <button type="submit" name="action" value="back">入力内容修正</button>
-  <button type="submit" name="action" value="submit">送信する</button>
-</form>
+        <div class="flex">
+          <label class="mr-10">Curriculum Vitae</label>
+          {{ $inputs['file2'] }}
+          <input name="file2" value="{{ $inputs['file2'] }}" type="hidden">
+        </div>
+
+        <div class="flex">
+          <label class="mr-10">Portfolio</label>
+          {{ $inputs['file3'] }}
+          <input name="file3" value="{{ $inputs['file3'] }}" type="hidden">
+        </div>
+
+      </div>
+      
+      <div class="flex justify-center items-center mt-10">
+        <button type="submit" name="action" value="back" class="border border-black bg-slate-200 p-1 mr-10">入力内容修正</button>
+        <button type="submit" name="action" value="submit" class="border border-black bg-slate-200 p-1">送信する</button>
+      </div>
+
+  </form>
+</div>
 
 @endsection

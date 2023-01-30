@@ -14,9 +14,14 @@ class ContactsSendmail extends Mailable
     use Queueable, SerializesModels;
 
     // property
+    private $job;
+    private $name;
     private $email;
-    private $title;
-    private $body;
+    private $portfolio;
+    private $query;
+    private $file1;
+    private $file2;
+    private $file3;
 
     /**
      * Create a new message instance.
@@ -25,9 +30,14 @@ class ContactsSendmail extends Mailable
      */
     public function __construct($inputs)
     {
+        $this->job = $inputs['job'];
+        $this->name = $inputs['name'];
         $this->email = $inputs['email'];
-        $this->title = $inputs['title'];
-        $this->body = $inputs['body'];
+        $this->portfolio = $inputs['portfolio'];
+        $this->query = $inputs['query'];
+        $this->file1 = $inputs['file1'];
+        $this->file2 = $inputs['file2'];
+        $this->file3 = $inputs['file3'];
     }
 
     /**
@@ -43,9 +53,14 @@ class ContactsSendmail extends Mailable
             ->subject('自動送信メール')
             ->view('contact.mail')
             ->with([
+            'job' => $this->job,
+            'name' => $this->name,
             'email' => $this->email,
-            'title' => $this->title,
-            'body' => $this->body,
+            'portfolio' => $this->portfolio,
+            'query' => $this->query,
+            'file1' => $this->file1,
+            'file2' => $this->file2,
+            'file3' => $this->file3
             ]);
     }
 }

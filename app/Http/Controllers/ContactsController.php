@@ -19,15 +19,15 @@ class ContactsController extends Controller
     public function confirm(Request $request)
     {
         $request->validate([
-            'job' => 'required',
+            'job' => 'required|in:frontend,backend,infrastructure',
             'name' => 'required',
             'email' => 'required|email',
-            'query' => 'required',
-            'resume' => 'required',
-            'cv' => 'required'
+            'file1' => 'file|max:1600|mimes:jpeg,png,jpg,pdf',
+            'file2' => 'file|max:1600|mimes:jpeg,png,jpg,pdf',
         ]);
 
         $inputs = $request->all();
+        // dd($request->all());
 
         return view('contact.confirm', [
             'inputs' => $inputs,
@@ -37,17 +37,11 @@ class ContactsController extends Controller
     // send mail
     public function send(Request $request)
     {
-        $request->validate([
-            'job' => 'required',
-            'name' => 'required',
-            'email' => 'required|email',
-            'query' => 'required',
-            'resume' => 'required',
-            'cv' => 'required'
-        ]);
-
         $action = $request->input('action');
         $inputs = $request->except('action');
+
+        // dd($action);
+        // dd($inputs);
 
         if($action !== 'submit'){
             return redirect()
@@ -55,7 +49,7 @@ class ContactsController extends Controller
             ->withInput($inputs);
         } else {
             Mail::to($inputs['email'])->send(new ContactsSendmail($inputs));
-            Mail::to('自分のメールアドレス')->send(new ContactsSendmail($inputs));
+            Mail::to('bcp4510@gmail.com')->send(new ContactsSendmail($inputs));
 
             // 二重送信対策のためトークンを再発行
             $request->session()->regenerateToken();

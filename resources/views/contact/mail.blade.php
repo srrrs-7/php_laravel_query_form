@@ -2,11 +2,26 @@
 
 お問い合わせ内容を受け付けました。<br>
 <br>
-■メールアドレス<br>
-{!! $email !!}<br>
+■job<br>
+{!! $job !!}<br>
 <br>
-■タイトル<br>
-{!! $title !!}<br>
+■name<br>
+{!! $name !!}<br>
 <br>
-■お問い合わせ内容<br>
-{!! nl2br($body) !!}<br>
+■email<br>
+{!! nl2br($email) !!}<br>
+<br>
+■portfolio url<br>
+{!! $portfolio !!}<br>
+<br>
+■Query<br>
+{!! nl2br($query) !!}<br>
+<br>
+■Resume<br>
+{!! nl2br($file1) !!}<br>
+<br>
+■Curriculum Vitae<br>
+{!! nl2br($file2) !!}<br>
+<br>
+■Portfolio<br>
+{!! nl2br($file3) !!}<br>
