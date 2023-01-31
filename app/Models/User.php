@@ -9,7 +9,7 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $table = "user";
+    protected $table = "users";
 
     protected $fillable = [
         "job",
@@ -19,6 +19,6 @@ class User extends Model
         "query",
         "file1",
         "file2",
-        "file3",
-    ]
+        "file3"
+    ];
 }

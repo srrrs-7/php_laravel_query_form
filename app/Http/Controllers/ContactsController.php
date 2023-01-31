@@ -10,14 +10,12 @@ use Illuminate\Support\Facades\Mail;
 class ContactsController extends Controller
 {
     // index
-    public function index()
-    {
+    public function index() {
         return view("contact.index");
     }
 
     // confirm 
-    public function confirm(Request $request)
-    {
+    public function confirm(Request $request) {
         $request->validate([
             'job' => 'required|in:frontend,backend,infrastructure',
             'name' => 'required',
@@ -35,8 +33,7 @@ class ContactsController extends Controller
     }
 
     // send mail
-    public function send(Request $request)
-    {
+    public function send(Request $request) {
         $action = $request->input('action');
         $inputs = $request->except('action');
 

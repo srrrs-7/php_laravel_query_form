@@ -14,6 +14,9 @@ model:
 controller:
 	php artisan make:controller ContactsController
 
+api:
+	php artisan make:controller ApiController
+
 mail:
 	php artisan make:mail ContactsSendmail
 
