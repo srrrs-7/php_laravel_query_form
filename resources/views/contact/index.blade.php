@@ -6,7 +6,7 @@
         <h1 colspan="1" class="text-2xl">Entry Form</h1>
 </div>
 
-<div class="flex justify-center items-center border border-black m-20 bg-amber-50">
+<div class="flex justify-center items-center border border-black mx-64 my-10 bg-amber-50">
 
     <form method="POST" action="{{route('contact.confirm')}}" enctype="multipart/form-data">
         @csrf
@@ -70,7 +70,7 @@
                     <!-- mail address -->
                     <tr>
                         <td>
-                            <div class="flex mb-5 mx-20">
+                            <div class="flex mx-20">
                                 <label for="email">mail address</label>
                                 <p class="text-red-400 text-3xl ">&nbsp;*</p>
                             </div>
@@ -164,34 +164,61 @@
                             <td>    
                                 <div class="mb-10">
                                     <div class="flex m-2">
-                                        <label for="file1">Resume</label>
+                                        <label for="inputFile1">Resume (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[105px]">&nbsp;*</p>
-                                        <label for="file1" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Resume</label>
-                                        <input type="file" id="file1" name="file1" class="mb-3" style="display:none;">
-                                        <p>{{ old("file1") }}</p>
+                                        <label for="inputFile1" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
+                                        <input type="file" id="inputFile1" name="file1" class="mb-3" style="display:none;">
+                                        <div id="file1" class="ml-10"></div>
                                         @if ($errors->has('file1'))
                                             <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file1') }}</p>
                                         @endif
                                     </div>
 
+                                    <script>
+                                        const input1 = document.getElementById("inputFile1")
+                                        input1.addEventListener("change", (e) => {
+                                            const file = e.target.files[0].name;
+                                            document.getElementById("file1").innerHTML = file;
+                                        });
+                                    </script>
+
                                     <div class="flex m-2">
-                                        <label for="file2">Curriculum Vitae</label>
+                                        <label for="inputFile2">Curriculum Vitae (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[43px]">&nbsp;*</p>
-                                        <label for="file2" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Curriculum Vitae</label>
-                                        <input type="file" id="file2" name="file2" class="mb-3" style="display:none;">
-                                        <p>{{ old("file2") }}</p>
+                                        <label for="inputFile2" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
+                                        <input type="file" id="inputFile2" name="file2" class="mb-3" style="display:none;">
+                                        <div id="file2" class="ml-10"></div>
                                         @if ($errors->has('file2'))
                                             <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file2') }}</p>
                                         @endif
                                     </div>
 
+                                    
+                                    <script>
+                                        const input2 = document.getElementById("inputFile2")
+                                        input2.addEventListener("change", (e) => {
+                                            const file = e.target.files[0].name;
+                                            document.getElementById("file2").innerHTML = file;
+                                        });
+                                    </script>
+
                                     <div class="flex m-2">
-                                        <label for="file3">Portfolio</label>
+                                        <label for="inputFile3">Portfolio (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[100px]">&nbsp;*</p>
-                                        <label for="file3" class="mr-[120px] p-1 bg-slate-200 border border-black hover:bg-slate-100">Portfolio</label>
-                                        <input type="file" id="file3" name="file3" class="mb-3" style="display:none;">
+                                        <label for="inputFile3" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
+                                        <input type="file" id="inputFile3" name="file3" class="mb-3" style="display:none;">
+                                        <div id="file3" class="ml-10"></div>
                                         <p>{{ old("file3") }}</p>
                                     </div>
+
+                                    
+                                    <script>
+                                        const input3 = document.getElementById("inputFile3")
+                                        input3.addEventListener("change", (e) => {
+                                            const file = e.target.files[0].name;
+                                            document.getElementById("file3").innerHTML = file;
+                                        });
+                                    </script>
                                 </div>
                             </td>
                         </tr>
@@ -200,7 +227,7 @@
             </table>
         </div>
         
-        <!-- appropriate -->
+        <!-- confirm -->
         <div class="flex justify-center items-center mb-10">
             <input class="mr-5 w-5 h-5" type="checkbox" id="agree" name="agree">
             <p class="text-xl">I agree with the agreement</p>
