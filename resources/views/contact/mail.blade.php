@@ -18,10 +18,13 @@
 {!! nl2br($query) !!}<br>
 <br>
 ■Resume<br>
-{!! nl2br($file1) !!}<br>
+<a href="data:application/pdf;{{ $file1 }}" download>file1</a>
+<br>
 <br>
 ■Curriculum Vitae<br>
-{!! nl2br($file2) !!}<br>
+<a href="data:application/pdf;{{ $file2 }}" download>file2</a>
+<br>
 <br>
 ■Portfolio<br>
-{!! nl2br($file3) !!}<br>
+<a href="data:application/pdf;{{ $file3 }}" download>file3</a>
+</br>

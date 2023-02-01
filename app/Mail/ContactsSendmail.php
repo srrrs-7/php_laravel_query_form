@@ -50,17 +50,17 @@ class ContactsSendmail extends Mailable
         // mail configuration
         return $this
             ->from('example@gmail.com')
-            ->subject('自動送信メール')
+            ->subject('Auto response mail')
             ->view('contact.mail')
             ->with([
-            'job' => $this->job,
-            'name' => $this->name,
-            'email' => $this->email,
-            'portfolio' => $this->portfolio,
-            'query' => $this->query,
-            'file1' => $this->file1,
-            'file2' => $this->file2,
-            'file3' => $this->file3
+                'job' => $this->job,
+                'name' => $this->name,
+                'email' => $this->email,
+                'portfolio' => $this->portfolio,
+                'query' => $this->query,
+                'file1' => $this->file1,
+                'file2' => $this->file2,
+                'file3' => $this->file3
             ]);
     }
 }

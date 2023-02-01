@@ -167,7 +167,7 @@
                                         <label for="inputFile1">Resume (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[105px]">&nbsp;*</p>
                                         <label for="inputFile1" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
-                                        <input type="file" id="inputFile1" name="file1" class="mb-3" style="display:none;">
+                                        <input type="file" id="inputFile1" name="file1" accept="pdf, jpg" class="mb-3" style="display:none;">
                                         <div id="file1" class="ml-10"></div>
                                         @if ($errors->has('file1'))
                                             <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file1') }}</p>
@@ -180,25 +180,42 @@
                                             const file = e.target.files[0].name;
                                             document.getElementById("file1").innerHTML = file;
                                         });
+
+                                        // base64 logic
+                                        const file1 = e.target.files[0];
+                                        const reader1 = new FileReader()
+                                        reader1.onload = (e) => {
+                                            const base64Text = e.target.result
+                                            input1.file = base64Text
+                                        }
+                                        reader1.readAsDataURL(file1)
                                     </script>
 
                                     <div class="flex m-2">
                                         <label for="inputFile2">Curriculum Vitae (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[43px]">&nbsp;*</p>
                                         <label for="inputFile2" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
-                                        <input type="file" id="inputFile2" name="file2" class="mb-3" style="display:none;">
+                                        <input type="file" id="inputFile2" name="file2" accept="pdf, jpg" class="mb-3" style="display:none;">
                                         <div id="file2" class="ml-10"></div>
                                         @if ($errors->has('file2'))
                                             <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file2') }}</p>
                                         @endif
                                     </div>
 
-                                    
                                     <script>
                                         const input2 = document.getElementById("inputFile2")
                                         input2.addEventListener("change", (e) => {
                                             const file = e.target.files[0].name;
                                             document.getElementById("file2").innerHTML = file;
+                                            
+                                            // base64 logic
+                                            const file2 = e.target.files[0];
+                                            const reader2 = new FileReader()
+                                            reader2.onload = (e) => {
+                                                const base64Text = e.target.result
+                                                input2.file = base64Text
+                                            }
+                                            reader2.readAsDataURL(file2)
                                         });
                                     </script>
 
@@ -206,7 +223,7 @@
                                         <label for="inputFile3">Portfolio (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[100px]">&nbsp;*</p>
                                         <label for="inputFile3" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
-                                        <input type="file" id="inputFile3" name="file3" class="mb-3" style="display:none;">
+                                        <input type="file" id="inputFile3" accept="pdf, jpg" name="file3" class="mb-3" style="display:none;">
                                         <div id="file3" class="ml-10"></div>
                                         @if ($errors->has('file2'))
                                             <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file2') }}</p>
@@ -219,6 +236,15 @@
                                         input3.addEventListener("change", (e) => {
                                             const file = e.target.files[0].name;
                                             document.getElementById("file3").innerHTML = file;
+
+                                            // base64 logic
+                                            const file3 = e.target.files[0];
+                                            const reader3 = new FileReader()
+                                            reader3.onload = (e) => {
+                                                const base64Text = e.target.result
+                                                input3.file = base64Text
+                                            }
+                                            reader3.readAsDataURL(file3)
                                         });
                                     </script>
                                 </div>

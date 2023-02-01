@@ -1,0 +1,45 @@
+HELO:<>
+FROM:<example@gmail.com>
+TO:<bcp4510@gmail.com>
+
+From: example@gmail.com
+To: bcp4510@gmail.com
+Subject: Auto response mail
+Message-ID: <06161f82e31d26632d99f26c5bfc638a@gmail.com>
+MIME-Version: 1.0
+Date: Wed, 01 Feb 2023 15:07:49 +0000
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!-- mail format -->
+
+=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E5=86=85=E5=AE=B9=
+=E3=82=92=E5=8F=97=E3=81=91=E4=BB=98=E3=81=91=E3=81=BE=E3=81=97=E3=81=9F=
+=E3=80=82<br>
+<br>
+=E2=96=A0job<br>
+infrastructure<br>
+<br>
+=E2=96=A0name<br>
+aaa<br>
+<br>
+=E2=96=A0email<br>
+aaa@aaa.com<br>
+<br>
+=E2=96=A0portfolio url<br>
+<br>
+<br>
+=E2=96=A0Query<br>
+<br>
+<br>
+=E2=96=A0Resume<br>
+<a href=3D{$file1} download>file1</a>
+<br>
+<br>
+=E2=96=A0Curriculum Vitae<br>
+<a href=3D{$file2} download>file2</a>
+<br>
+<br>
+=E2=96=A0Portfolio<br>
+<a href=3D{$file3} download>file3</a>
+</br>
