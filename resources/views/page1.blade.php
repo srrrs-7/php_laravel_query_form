@@ -1,4 +1,4 @@
-@include("layouts.template1")
+@extends("layouts.template1")
 
 @section("content")
     <h1>index page</h1>
