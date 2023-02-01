@@ -25,7 +25,7 @@
                         <td>
                             <div class="flex flex-row mt-20">
                                 <div class="mr-5">
-                                    <input class="" type="radio" id="inlineRadio01" name="job" value="frontend" {{ old('job','frontend') == 'frontend' ? 'checked' : '' }}>
+                                    <input class="" type="radio" id="inlineRadio01" name="job" value="frontend" checked {{ old('job','frontend') == 'frontend' ? 'checked' : '' }}>
                                     <label class="" for="inlineRadio01">frontend</label>
                                 </div>
                                 <div class="mx-10">
@@ -208,7 +208,9 @@
                                         <label for="inputFile3" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
                                         <input type="file" id="inputFile3" name="file3" class="mb-3" style="display:none;">
                                         <div id="file3" class="ml-10"></div>
-                                        <p>{{ old("file3") }}</p>
+                                        @if ($errors->has('file2'))
+                                            <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file2') }}</p>
+                                        @endif
                                     </div>
 
                                     

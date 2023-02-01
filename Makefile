@@ -1,6 +1,10 @@
 laravel:
 	composer create-project laravel/laravel pjt --prefer-dist
 
+install:
+	composer install
+	npm install
+
 run:
 	php artisan serve
 

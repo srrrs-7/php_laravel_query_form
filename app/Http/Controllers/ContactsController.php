@@ -20,9 +20,9 @@ class ContactsController extends Controller
             'job' => 'required|in:frontend,backend,infrastructure',
             'name' => 'required',
             'email' => 'required|email',
-            'file1' => 'file|max:1600|mimes:pdf',
-            'file2' => 'file|max:1600|mimes:pdf',
-            'file3' => 'file|max:1600|mimes:pdf'
+            'file1' => 'file|max:3200|mimes:jpg,pdf',
+            'file2' => 'file|max:3200|mimes:jpg,pdf',
+            'file3' => 'file|max:3200|mimes:jpg,pdf'
         ]);
 
         $inputs = $request->all();
