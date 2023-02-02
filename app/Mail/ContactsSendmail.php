@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use PDF;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -47,6 +49,8 @@ class ContactsSendmail extends Mailable
     */
     public function build()
     {
+        // $pdf = PDF::loadView('myPDF', $this->file1);
+
         // mail configuration
         return $this
             ->from('example@gmail.com')

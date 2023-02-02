@@ -65,3 +65,6 @@ vite:
 tailwind:
 	npm install -D tailwindcss postcss autoprefixer
 	npx tailwindcss init -p
+
+pdf:
+	composer require barryvdh/laravel-dompdf
