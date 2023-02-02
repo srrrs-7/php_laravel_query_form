@@ -6,6 +6,7 @@ use App\Mail\ContactsSendmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class ContactsController extends Controller
 {
@@ -24,6 +25,16 @@ class ContactsController extends Controller
             'file2' => 'file|max:3200|mimes:jpg,pdf',
             'file3' => 'file|max:3200|mimes:jpg,pdf'
         ]);
+
+        // storage file
+        $fileName = $request->file1->getClientOriginalName();
+        $filePath = 'uploads/' . $fileName;
+        $path1 = Storage::disk('public')->put($filePath, file_get_contents($request->file1));
+        $path1 = Storage::disk('public')->url($path1);
+        // $path2 = Storage::disk('public')->put($filePath, file_get_contents($request->file2));
+        // $path2 = Storage::disk('public')->url($path2);
+        // $path3 = Storage::disk('public')->put($filePath, file_get_contents($request->file3));
+        // $path3 = Storage::disk('public')->url($path3);
 
         $inputs = $request->all();
         // dd($request->all());

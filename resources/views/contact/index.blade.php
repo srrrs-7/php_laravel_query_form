@@ -167,7 +167,7 @@
                                         <label for="inputFile1">Resume (PDF)</label>
                                         <p class="text-red-400 text-3xl mr-[105px]">&nbsp;*</p>
                                         <label for="inputFile1" class="p-1 bg-slate-200 border border-black hover:bg-slate-100">Select File</label>
-                                        <input type="file" id="inputFile1" name="file1" value="" accept="pdf, jpg" class="mb-3" style="display:none;">
+                                        <input type="file" id="inputFile1" name="file1" accept="pdf, jpg" class="mb-3" style="display:none;">
                                         <div id="file1" class="ml-10"></div>
                                         @if ($errors->has('file1'))
                                             <p class="justify-center items-center ml-2 text-red-400">{{ $errors->first('file1') }}</p>
