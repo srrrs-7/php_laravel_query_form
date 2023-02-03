@@ -27,10 +27,10 @@ class ContactsController extends Controller
         ]);
 
         // storage file
-        $fileName = $request->file1->getClientOriginalName();
-        $filePath = 'uploads/' . $fileName;
-        $path1 = Storage::disk('public')->put($filePath, file_get_contents($request->file1));
-        $path1 = Storage::disk('public')->url($path1);
+        // $fileName = $request->file1->getClientOriginalName();
+        // $filePath = 'uploads/' . $fileName;
+        // $path1 = Storage::disk('public')->put($filePath, file_get_contents($request->input("file1")));
+        // $path1 = Storage::disk('public')->url($path1);
         // $path2 = Storage::disk('public')->put($filePath, file_get_contents($request->file2));
         // $path2 = Storage::disk('public')->url($path2);
         // $path3 = Storage::disk('public')->put($filePath, file_get_contents($request->file3));
